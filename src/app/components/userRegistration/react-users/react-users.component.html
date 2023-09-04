@@ -1,0 +1,88 @@
+<h2>User Registraion!</h2>
+
+<form [formGroup]="userFormGroup" >
+
+
+    <table>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" formControlName="Email" [ngClass]="{ 'redborder' : userFormGroup.get('Email')?.errors 
+                && (userFormGroup.get('Email')?.touched || userFormGroup.get('Email')?.dirty) }" />
+            
+              <span style="color:red" *ngIf="userFormGroup.get('Email')?.errors &&
+               (userFormGroup.get('Email')?.touched || userFormGroup.get('Email')?.dirty)">Email cannot be empty!!!</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="text" formControlName="Password" [ngClass]="{'redborder' : userFormGroup.get('Password')?.errors 
+                && (userFormGroup.get('Password')?.touched || userFormGroup.get('Password')?.dirty) }" />
+            
+                <span style="color:red" *ngIf="userFormGroup.get('Password')?.errors &&
+                (userFormGroup.get('Password')?.touched || userFormGroup.get('Password')?.dirty)">Password cannot be empty!!!</span>
+            </td>
+        </tr>
+        <tr>
+            <td>FirstName</td>
+            <td><input type="text" formControlName="FirstName" /></td>
+        </tr>
+        <tr>
+            <td>LastName</td>
+            <td><input type="text" formControlName="LastName" /></td>
+        </tr>
+        <tr>
+            <td>DOB</td>
+            <td><input type="text" formControlName="DOB" /></td>
+        </tr>
+        <tr>
+            <td>Contact</td>
+            <td><input type="text" formControlName="Contact" /></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input type="radio" formControlName="Gender" name="Gender" value="Male" /> Male
+                <input type="radio" formControlName="Gender" name="Gender" value="Female" /> Female
+            </td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" formControlName="Address" /></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><textarea formControlName="Description"></textarea></td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>
+                <select formControlName="Country">
+                      <option *ngFor="let i of countries" [value]="i.key">{{i.value}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Terms and Condition</td>
+            <td><input type="checkbox" formControlName="TAC" > </td>
+        </tr>
+
+        <tr>
+            <td>Tools</td>
+            <td>
+                <div formArrayName="tools">
+                     <div *ngFor="let control of tools.controls; let i=index">
+                           {{control.value}}
+                     </div>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><button (click)="SubmitForm()">Submit</button></td>
+        </tr>
+    </table>
+   
+  
+   <br/>
+</form>

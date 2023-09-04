@@ -1,0 +1,62 @@
+<p>user Details</p>
+<h1>Welcome !!!   {{ MyName  }} {{ user.UserName }}</h1>
+
+<div *ngFor="let i of userList">
+    <h2>{{ i.UserName}} || {{ i.Contact}} </h2>
+</div>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Password</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Address</th>
+        <th>Age</th>
+    </tr>
+    <tr *ngFor="let i of userList">
+       <td [innerHTML]="i.Name"></td>
+       <td [innerHTML]="i.Password"></td>
+       <td [innerHTML]="i.Email"></td>
+       <td [innerHTML]="i.Contact" ></td>
+       <td [innerHTML]="i.Address"></td>
+       <td [innerHTML]="i.Age"></td>
+    </tr>
+</table>
+
+
+<!-- Template Reference Variable #frmUser  ===> We can get the value in component frmUser.value  -->
+<form #frmUser="ngForm" (ngSubmit)="Submit(frmUser)">
+    
+    <input type="text" name="email" ngModel />
+    
+    <table [cellSpacing]="2" cellspacing="5">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" ngModel name="Name" /> </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="text" ngModel name="Password" /> </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" ngModel  name="Email" /> </td>
+        </tr>
+        <tr>
+            <td>Contact</td>
+            <td><input type="text" ngModel name="Contact"  /> </td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" ngModel name="Address" /> </td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="text" ngModel name="Age" /> </td>
+        </tr>
+    </table>
+
+    <button type="submit" >Submit Form</button>
+</form>
+
