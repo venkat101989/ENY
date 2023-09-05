@@ -9,9 +9,6 @@ import { WhiteSpaceValidator } from 'src/app/Validator/WhiteSpaceValidator';
 })
 export class ReactUsersComponent implements OnInit {
 
-
-  
-
   //countries:string[] = [];
 
   countries:any[] = [];
